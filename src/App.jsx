@@ -11,10 +11,11 @@ import Tarjetaquincho from './Componentes/Tarjeta/Tarjeta'
 import Eventos from './Componentes/Eventos/Eventos'
 import Registro from './Componentes/Registro/Registro'
 import Login from './Componentes/Login.jsx/Login'
+import { AuthProvider } from './Componentes/Api/AuthContext'
 
 function App() {
   return (
-  
+  <AuthProvider>
     <Router>
       <div className="contenedor-total">
         <Header />
@@ -29,6 +30,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </AuthProvider>
   )
 }
 
