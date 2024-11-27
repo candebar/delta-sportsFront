@@ -15,7 +15,7 @@ import { AuthProvider } from './Componentes/Api/AuthContext'
 
 function App() {
   return (
-  <AuthProvider>
+  // <AuthProvider>
     <Router>
       <div className="contenedor-total">
         <Header />
@@ -30,7 +30,7 @@ function App() {
         <Footer />
       </div>
     </Router>
-    </AuthProvider>
+    //  </AuthProvider>
   )
 }
 
