@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(()=> {
-        //Cargar el estado de autenticacioón desde localstorage
+        
         return localStorage.getItem('isAuthenticated') === 'true';
 
     });
@@ -14,11 +14,11 @@ export const AuthProvider = ({ children }) => {
 
     const login = () => {
         setIsAuthenticated(true);
-        localStorage.setItem('isAuthenticated', 'true');//Guardar en localstorage
+        localStorage.setItem('isAuthenticated', 'true');
     };
     const logout = () => {
         setIsAuthenticated(false);
-        localStorage.removeItem('isAuthenticated'); //Eliminar de localstorage
+        localStorage.removeItem('isAuthenticated'); 
         return (
             <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
                 {children}

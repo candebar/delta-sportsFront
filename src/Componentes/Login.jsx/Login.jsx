@@ -8,7 +8,7 @@ function Login() {
         email: '',
         password: '',
     });
-    const navigate = useNavigate(); // Para redirigir al usuario después de iniciar sesión
+    const navigate = useNavigate(); 
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,14 +18,13 @@ function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validación de los campos
         if (!formData.email || !formData.password) {
             alert('Por favor, completa todos los campos.');
             return;
         }
 
         try {
-            // Enviar los datos al backend para iniciar sesión
+            
             const response = await fetch('http://localhost:5000/api/usuarios/login', {
                 method: 'POST',
                 headers: {
@@ -39,11 +38,10 @@ function Login() {
             }
 
             const data = await response.json();
-            console.log(data); // Respuesta del backend
+            console.log(data); 
 
-            // Si todo va bien, redirigir al usuario a otra página (por ejemplo, al dashboard)
             alert('Inicio de sesión exitoso');
-            navigate('/dashboard'); // Cambia la ruta de redirección según lo que necesites
+            navigate('/reservas'); 
         } catch (error) {
             console.error('Error al iniciar sesión:', error);
             alert('Hubo un error al iniciar sesión. Intenta de nuevo.');

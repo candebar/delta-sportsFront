@@ -12,13 +12,13 @@ function Formulario() {
 
   const [submittedData, setSubmittedData] = useState([]);
 
-  // Cargar turnos activos desde el backend
+  
   useEffect(() => {
     const obtenerTurnos = async () => {
       try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        setSubmittedData(data); // Actualizar estado con los turnos activos
+        setSubmittedData(data); 
       } catch (error) {
         console.error('Error al obtener turnos:', error);
       }
@@ -27,13 +27,12 @@ function Formulario() {
     obtenerTurnos();
   }, []);
 
-  // Manejar cambios en los inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Enviar turno al backend
+
   const enviarDatosBackend = async (nuevoTurno) => {
     try {
       const response = await fetch(API_URL, {
@@ -47,7 +46,7 @@ function Formulario() {
         throw new Error('Error al guardar el turno en el backend');
       }
       const datos = await response.json();
-      setSubmittedData((prevData) => [...prevData, datos]); // Actualizar la lista local
+      setSubmittedData((prevData) => [...prevData, datos]); 
       console.log('Turno creado en el backend:', datos);
     } catch (error) {
       console.error('Error al enviar datos al backend:', error);
@@ -58,28 +57,28 @@ function Formulario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación campos completos
+    
     if (!formData.nombre || !formData.dia || !formData.horario) {
       alert('Por favor, complete todos los campos antes de enviar.');
       return;
     }
 
-    // Crear objeto para enviar al backend
+    
     const nuevoTurno = {
       nombre: formData.nombre,
       dia: formData.dia,
       hora: formData.horario,
     };
 
-    // Enviar datos al backend
+    
     await enviarDatosBackend(nuevoTurno);
 
-    // Limpiar formulario
+   
     setFormData({ nombre: '', dia: '', horario: '' });
     alert('Turno creado con éxito');
   };
 
-  // Desactivar un turno (borrado lógico)
+  
   const desactivarTurno = async (id) => {
     try {
       const response = await fetch(`${API_URL}/${id}`, {

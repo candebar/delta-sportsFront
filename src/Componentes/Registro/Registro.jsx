@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Registro.css';
-// import api from './../Api'
+
 
 function Registro() {
     const [formData, setFormData] = useState({
@@ -9,8 +9,7 @@ function Registro() {
         email: '',
         password: '',
     });
-    const navigate = useNavigate(); // Para redirigir al login después del registro
-
+    const navigate = useNavigate(); 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -26,30 +25,23 @@ function Registro() {
         }
 
         try {
-            // Enviar los datos al backend
-            const response = await fetch('http://localhost:5000/api/usuarios/registro', { //Diferencia, no usamos api.post('usuarios/registro', {email, password})
-                method: 'POST',
+            
+            const response = await fetch('http://localhost:5000/api/usuarios/registro', { 
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
             });
-        //Otra forma (como en clases)
-        //  try{
-        //  await api.post('/usuarios/registro', {email, password});
-        //  alert ('Usuario registrado con éxito');
-        //  } catch (error){
-        //  alert ('Error al registrar: ' + error.response.data);
-        //  }
+
 
             if (!response.ok) {
                 throw new Error('Error al registrar el usuario');
             }
 
             const data = await response.json();
-            console.log(data); // Respuesta del backend
+            console.log(data); 
 
-            // Si todo va bien, redirigir al login
+         
             alert('Registro exitoso, por favor inicie sesión');
             navigate('/login');
        } catch (error) {

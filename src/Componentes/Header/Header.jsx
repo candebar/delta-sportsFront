@@ -25,7 +25,6 @@ function Header() {
               <Nav.Link href="/registro">Registro</Nav.Link>
               <NavDropdown title="Mi cuenta" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/login">Iniciar sesión</NavDropdown.Item>
-                <NavDropdown.Item href="/logout">Cerrar sesión</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
