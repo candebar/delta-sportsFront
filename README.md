@@ -1,14 +1,20 @@
 Delta Sports
+
 Este proyecto es una aplicación web para pedir turnos en una Cancha de padel, desarrollada utilizando React para el frontend y Node.js con Express para el backend. En la aplicación se puede crear y eliminar turnos en la base de datos, y también se puede modificar los datos del usuario (update by id) una vez uno a iniciado sesión, utilizando MongoDB Atlas como base de datos.
 
 Tecnologías Utilizadas
+
 Frontend: React, React Router, CSS
 Backend: Node.js, Express
 Base de Datos: MongoDB Atlas, Mongoose
+
 Estructura del Proyecto
+
 Frontend: Código fuente en el directorio front/
 Backend: Código fuente en el directorio backend/
+
 Instalación
+
 Backend
 Navega al directorio backend/.
 
@@ -40,6 +46,7 @@ Inicia el servidor de desarrollo del frontend.
 npm run dev
 
 Funcionalidades
+
 Lista de Turnos: Visualiza todos los turnos activos.
 Crear Turno: Añade un nuevo turno a la base de datos.
 Eliminar Turno: Desactiva un turno de la base de datos.
